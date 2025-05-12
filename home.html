@@ -74,10 +74,10 @@
                     </p>
                         <!-- Your form elements go here -->
                     <div class="row">
-                        <form id="yourForm" onsubmit="redirectToCommandes(event)">
-                            <!-- Your form elements go here -->
-                            <button type="submit" class="btn btn-success mt-2">Soumettre</button>
-                        </form>
+                      <form id="yourForm" onsubmit="redirectToCommandes(event)">
+    <!-- Your form elements go here -->
+    <button type="submit" class="btn btn-success mt-2">Soumettre</button>
+</form>
                                      </form>
                     <button type="button" class="btn btn-secondary mt-2" onclick="hideOrderForm()">Annuler</button>
                 </div> </section>
@@ -433,16 +433,13 @@
     }
     
 </script>
-  <script>
+<script defer>
     function redirectToCommandes(event) {
-        // Prevent the default form submission (no page reload)
         event.preventDefault();
-
-        // Redirect to commandes.html
         window.location.href = 'commandes.html';
     }
+</script>
 
-  </script>
 </body>
 
 </html>
