@@ -535,14 +535,6 @@ font-weight: 800;
 #menu .nav-pills {
 	margin-top: 55%;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        /* gap: 15px; */
-        margin-left: -48%;
-        font-size: 10px !important;
-        flex-wrap: nowrap;
 }}
 @media (max-width: 768px) {
     .nav-pills {
@@ -550,19 +542,25 @@ font-weight: 800;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-	#menu .nav-pills {
-		margin-top: 40%;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		margin-left: 0;
-		font-size: 10px !important;
-		flex-wrap: wrap; /* allow wrapping to avoid hiding */
-		width: 100%;
-	}
-	
-	
+    #menu .nav-pills {
+        margin-top: 40%;
+		margin-left: -50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 10px !important;
+        flex-wrap: nowrap;
+        width: 200%;        /* ✅ Bigger width than container */
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+	#menu .nav-pills li {
+        flex: 0 0 auto;  /* ✅ Prevent shrinking */
+    }
     .nav-item {
         flex: 1 1 45%; /* Adjust this based on how you want the items to behave */
         margin-bottom: 10px; /* Add spacing between items */
