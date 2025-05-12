@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Restaurant Menu">
+    <meta name="author" content="someone">
+
+    <title>Restaurant Menu</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<nav class="navbar">
+    <div><img src="logo.png" alt="logo" class="logo"></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="home.html"><i class="fas fa-utensils"></i> Menu</a></li>
+        <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos </a></li>
+        <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+        <li><a href="commandes.html"><i class="fas fa-shopping-cart"></i> Mes Commande</a></li>
+    </ul>
+</nav>
+
+
+<section class="bg-menu bg-section" id="menu">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Nav pills -->
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#breakfast">Petit-déjeuner</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#lunch">Déjeuner</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#dinner">Dîner</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#dessert">Dessert</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#salads">Salades</a></li>
+                <li class="nav-item"><a class="nav-link active show" data-toggle="pill" href="#drinks">Boissons</a></li>
+            </ul>
+            <section id="orderForm">
+                <form action="">
+                    <p class="qty">
+                        <label for="qty">Quantiter :</label>
+                        <button type="button" class="qtyminus" onclick="changeQty(-1)">&minus;</button>
+                        <input type="number" name="qty" id="qty" min="1" max="10" step="1" value="1">
+                        <button type="button" class="qtyplus" onclick="changeQty(1)">&plus;</button>
+                    </p>
+                        <!-- Your form elements go here -->
+                    <div class="row">
+                        <form id="yourForm" onsubmit="redirectToCommandes(event)">
+                            <!-- Your form elements go here -->
+                            <button type="submit" class="btn btn-success mt-2">Soumettre</button>
+                        </form>
+                                     </form>
+                    <button type="button" class="btn btn-secondary mt-2" onclick="hideOrderForm()">Annuler</button>
+                </div> </section>
+            <!-- Tab panes -->
+            <div class="tab-content slideanim slide">
+
+                <!-- Petit-déjeuner -->
+                <div id="breakfast" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Tortilla espagnole <span class="badge pull-right">59 MAD</span></h4>
+                                    <p>Pommes de terre, oignon, huile d'olive, œufs fermiers</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                    
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Croquettes de poisson <span class="badge pull-right">68 MAD</span></h4>
+                                    <p>Cabillaud, colin, pommes de terre, huile d'olive, herbes fraîches</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Salade de riz sauvage <span class="badge pull-right">52 MAD</span></h4>
+                                    <p>Riz mélangé, noix, basilic, menthe, abricots secs, huile d'olive</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Petit-déjeuner</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/breakfast.jpg"
+                                    class="menu-img img-fluid" alt="breakfast-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Déjeuner -->
+                <div id="lunch" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Poulet milanais <span class="badge pull-right">87 MAD</span></h4>
+                                    <p>Spaghetti, ail, basilic, parmesan, sauce tomate maison</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Quiche lorraine <span class="badge pull-right">65 MAD</span></h4>
+                                    <p>Lardons, crème, œufs, pâte brisée</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Soupe de légumes <span class="badge pull-right">49 MAD</span></h4>
+                                    <p>Carottes, poireaux, pommes de terre, herbes</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Déjeuner</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/lunch.jpg"
+                                    class="menu-img img-fluid" alt="lunch-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dîner -->
+                <div id="dinner" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Ratatouille <span class="badge pull-right">72 MAD</span></h4>
+                                    <p>Aubergines, courgettes, tomates, poivrons, herbes</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Lasagnes bolognaise <span class="badge pull-right">95 MAD</span></h4>
+                                    <p>Viande hachée, tomates, béchamel, fromage râpé</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Saumon grillé <span class="badge pull-right">109 MAD</span></h4>
+                                    <p>Filet de saumon, riz, sauce citronnée</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Dîner</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/dinner.jpg"
+                                    class="menu-img img-fluid" alt="dinner-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div id="dessert" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Tiramisu <span class="badge pull-right">49 MAD</span></h4>
+                                    <p>Mascarpone, café, cacao, biscuits</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Crème brûlée <span class="badge pull-right">45 MAD</span></h4>
+                                    <p>Crème, vanille, sucre caramélisé</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Moelleux au chocolat <span class="badge pull-right">50 MAD</span></h4>
+                                    <p>Chocolat noir, œufs, sucre, beurre</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Desserts</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/dessert.jpg"
+                                    class="menu-img img-fluid" alt="dessert-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salades -->
+                <div id="salads" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Salade César <span class="badge pull-right">69 MAD</span></h4>
+                                    <p>Poulet, laitue, parmesan, croûtons, sauce César</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Salade niçoise <span class="badge pull-right">72 MAD</span></h4>
+                                    <p>Thon, œufs, haricots verts, olives, tomates</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Salade de chèvre chaud <span class="badge pull-right">75 MAD</span></h4>
+                                    <p>Chèvre, salade verte, noix, miel</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Salades</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/salads.jpg"
+                                    class="menu-img img-fluid" alt="salads-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boissons -->
+                <div id="drinks" class="tab-pane fade active show">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h4>Lassi à la mangue <span class="badge pull-right">31 MAD</span></h4>
+                                    <p>Mangue, yaourt, miel, glaçons</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Smoothie fraise-banane <span class="badge pull-right">35 MAD</span></h4>
+                                    <p>Fraises, banane, jus d'orange</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>Eau minérale <span class="badge pull-right">15 MAD</span></h4>
+                                    <p>Bouteille 50 cl</p>
+                                    <button class="btn btn-primary mt-2"onclick="showOrderForm()">Commander</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="right-cover">
+                                <h3>Boissons</h3>
+                                <img src="https://cdn.jsdelivr.net/gh/linuxguist/files@main/img/menu/drink.jpg" class="menu-img img-fluid"
+                                    alt="brekfast-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div id="overlay" onclick="hideOrderForm()"></div>
+<script>
+    var input = document.querySelector('#qty');
+        var btnminus = document.querySelector('.qtyminus');
+        var btnplus = document.querySelector('.qtyplus');
+
+        if (input !== undefined && btnminus !== undefined && btnplus !== undefined && input !== null && btnminus !== null && btnplus !== null) {
+
+            var min = Number(input.getAttribute('min'));
+            var max = Number(input.getAttribute('max'));
+            var step = Number(input.getAttribute('step'));
+
+            function qtyminus(e) {
+                var current = Number(input.value);
+                var newval = (current - step);
+                if (newval < min) {
+                    newval = min;
+                } else if (newval > max) {
+                    newval = max;
+                }
+                input.value = Number(newval);
+                e.preventDefault();
+            }
+
+            function qtyplus(e) {
+                var current = Number(input.value);
+                var newval = (current + step);
+                if (newval > max) newval = max;
+                input.value = Number(newval);
+                e.preventDefault();
+            }
+
+            btnminus.addEventListener('click', qtyminus);
+            btnplus.addEventListener('click', qtyplus);
+
+        }
+    /* Navbar scroll */
+        $(function () {
+
+            var nav = $('.navbar'),
+                doc = $(document),
+                win = $(window);
+
+            win.scroll(function () {
+
+                if (doc.scrollTop() > 80) {
+                    nav.addClass('scrolled');
+                } else {
+                    nav.removeClass('scrolled');
+                }
+
+            });
+
+            win.scroll();
+
+        });
+
+
+        /* ***** Btn More-Less ***** */
+        $("#more").click(function () {
+            var $this = $(this);
+            $this.toggleClass('more');
+            if ($this.hasClass('more')) {
+                $this.text('More');
+            } else {
+                $this.text('Less');
+            }
+        });
+
+
+
+
+        /* ***** Slideanim  ***** */
+        $(window).scroll(function () {
+            $(".slideanim").each(function () {
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+
+
+            function showOrderForm() {
+                document.getElementById('orderForm').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+
+            function hideOrderForm() {
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            function changeQty(delta) {
+                const input = document.getElementById('qty');
+                let value = parseInt(input.value);
+                if (!isNaN(value)) {
+                    value = Math.max(1, Math.min(10, value + delta));
+                    input.value = value;
+                }
+            }
+
+        /* ***** Smooth Scrolling  ***** */
+        $(document).ready(function () {
+            $(".navbar a, #service a").on('click', function (event) {
+
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+
+            /* ***** Scroll to Top ***** */
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >= 300) {
+                    $('.to-top').fadeIn(200);
+                } else {
+                    $('.to-top').fadeOut(200);
+                }
+            });
+            $('.to-top').click(function () {
+                $('.body,html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+        })
+
+</script>
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
+    
+</script>
+  <script>
+    function redirectToCommandes(event) {
+        // Prevent the default form submission (no page reload)
+        event.preventDefault();
+
+        // Redirect to commandes.html
+        window.location.href = 'commandes.html';
+    }
+
+  </script>
+</body>
+
+</html>

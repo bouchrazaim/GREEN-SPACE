@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page du Panier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div><img src="logo.png" alt="logo" class="logo"></div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="home.html"><i class="fas fa-utensils"></i> Menu</a></li>
+            <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos </a></li>
+            <li><a href="Contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+            <li><a href="commandes.html"><i class="fas fa-shopping-cart"></i> Mes Commande</a></li>
+        </ul>
+    </nav>
+     <main class="container">
+        <h1 class="heading">
+            <ion-icon name="cart-outline"></ion-icon> Panier
+        </h1>
+
+        <div class="item-flex">
+
+            <section class="checkout">
+                <br>
+                <h2 class="section-heading">Détails de Paiement</h2>
+
+                <div class="payment-form">
+                    <div class="payment-method">
+                        <button class="method selected">
+                            <ion-icon name="card"></ion-icon>
+                            <span>Carte Bancaire</span>
+                            <ion-icon name="checkmark-circle" class="checkmark fill"></ion-icon>
+                        </button>
+
+                        <button class="method">
+                            <ion-icon name="logo-paypal"></ion-icon>
+                            <span>PayPal</span>
+                            <ion-icon name="checkmark-circle-outline" class="checkmark"></ion-icon>
+                        </button>
+                    </div>
+
+                    <form action="#">
+                        <div class="cardholder-name">
+                            <label for="cardholder-name" class="label-default">Nom du titulaire</label>
+                            <input type="text" id="cardholder-name" class="input-default" name="cardholder-name">
+                        </div>
+
+                        <div class="card-number">
+                            <label for="card-number" class="label-default">Numéro de carte</label>
+                            <input type="number" id="card-number" class="input-default" name="card-number">
+                        </div>
+                        <div class="card-number">
+                            <label for="card-number" class="label-default">Numéro de téléphone</label>
+                            <input type="tel" id="card-number" class="input-default" name="card-number">
+                        </div>
+                        <div class="input-flex">
+                            <div class="expire-date">
+                                <label for="expire-date" class="label-default">Date d'expiration</label>
+                                <div class="input-flex">
+                                    <input type="number" name="day" id="expire-date" class="input-default"
+                                        placeholder="31" min="1" max="31">
+                                    /
+                                    <input type="number" name="month" id="expire-date" class="input-default"
+                                        placeholder="12" min="1" max="12">
+                                </div>
+                            </div>
+
+                            <div class="cvv">
+                                <label for="cvv" class="label-default">CVV</label>
+                                <input type="number" id="cvv" class="input-default" name="cvv">
+                            </div>
+                           
+                        </div>
+                    </form>
+                </div>
+
+                <div class="btn-wrapper">
+                    <button class="btn btn-primary"><b>Payer</b> <span id="payAmount"> 162</span> MAD </button>
+                </div>
+            </section>
+
+            <section class="cart">
+                <div class="cart-item-box">
+                    <h2 class="section-heading">Résumé de la Commande</h2>
+
+                    <div class="product-card">
+                        <div class="card">
+                            <div class="img-box">
+                                <img src="salade.jpg" alt="green-tomatoes"
+                                    width="80px" class="product-img">
+                            </div>
+
+                            <div class="detail">
+                                <h4 class="product-name">Salade César</h4>
+                                <div class="wrapper">
+                                    <div class="product-qty">
+                                        <button id="decrement">
+                                            <ion-icon name="remove-outline"></ion-icon>
+                                        </button>
+                                        <span id="quantity">1</span>
+                                        <button id="increment">
+                                            <ion-icon name="add-outline"></ion-icon>
+                                        </button>
+                                    </div>
+
+                                    <div class="price">
+                                        <span id="price">70 MAD</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="product-close-btn">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="card">
+                            <div class="img-box">
+                                <img src="tiramisu.jpg" alt="chou" width="80px"
+                                    class="product-img">
+                            </div>
+
+                            <div class="detail">
+                                <h4 class="product-name">Tiramisu</h4>
+                                <div class="wrapper">
+                                    <div class="product-qty">
+                                        <button id="decrement">
+                                            <ion-icon name="remove-outline"></ion-icon>
+                                        </button>
+                                        <span id="quantity">1</span>
+                                        <button id="increment">
+                                            <ion-icon name="add-outline"></ion-icon>
+                                        </button>
+                                    </div>
+
+                                    <div class="price">
+                                        <span id="price">80 MAD</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="product-close-btn">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="amount">
+                        <div class="subtotal">
+                            <span>Sous-total</span> <span> <span id="subtotal">12 MAD</span></span>
+                        </div>
+
+                        <div class="tax">
+                            <span>Taxe</span> <span> <span id="tax">10 MAD</span></span>
+                        </div>
+
+                        <div class="shipping">
+                            <span>Livraison</span> <span> <span id="shipping" style="margin-left:8px;"> 0.00 MAD</span></span>
+                        </div>
+
+                        <div class="total">
+                            <span>Total</span> <span><span id="total">162 MAD</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>
