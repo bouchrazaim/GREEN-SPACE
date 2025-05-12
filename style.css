@@ -533,7 +533,16 @@ font-weight: 800;
 }
 @media (max-width: 480px) {
 #menu .nav-pills {
-	margin-top: 50%;
+	margin-top: 55%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* gap: 15px; */
+        margin-left: -48%;
+        font-size: 10px !important;
+        flex-wrap: nowrap;
 }}
 @media (max-width: 768px) {
     .nav-pills {
@@ -542,8 +551,18 @@ font-weight: 800;
         justify-content: space-between;
     }
 	#menu .nav-pills {
-		margin-top: 25%;
+		margin-top: 40%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-left: 0;
+		font-size: 10px !important;
+		flex-wrap: wrap; /* allow wrapping to avoid hiding */
+		width: 100%;
 	}
+	
+	
     .nav-item {
         flex: 1 1 45%; /* Adjust this based on how you want the items to behave */
         margin-bottom: 10px; /* Add spacing between items */
